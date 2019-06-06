@@ -269,7 +269,6 @@ const styles = theme => ({
         flexGrow: 1,
         color: "green",
         [theme.breakpoints.down("xs")]: {
-            flexDirection: "column",
             alignContent: "center",
             alignItems: "center",
             justifyContent: "center",

@@ -101,16 +101,17 @@ class ClassDetail extends Component
 
         return (
             <div className={classes.root}>
-                <Box
-                    justify="center"
-                    image={undefined}
-                    data={this.state.data}
-                    isInDetailPage={true}
-                    callback={this.handleData}
-                    propertyToEditability={this.state.propertyToEditability}
-                    isAdmin={this.props.userType === 'ADMIN'}
-                    detailName={'classe'}
-                />
+                <div className={classes.appBarSpacer}/>
+                <div className={classes.boxDiv}>
+                    <Box
+                        justify="center"
+                        data={this.state.data}
+                        isInDetailPage={true}
+                        callback={this.handleData}
+                        isAdmin={this.props.userType === 'ADMIN'}
+                        detailName={'classe'}
+                    />
+                </div>
             </div>
         );
     }
@@ -124,7 +125,19 @@ const styles = theme => ({
         alignItems: 'center',
         alignContent: 'center',
         marginTop: '10vh',
-    }
+        flexDirection: 'column',
+    },
+    boxDiv: {
+        width: 1100,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignContent: 'center',
+        marginTop: -(theme.spacing.unit * 5),
+        [theme.breakpoints.down(330)]: {
+            marginLeft: '15vw',
+        }
+    },
 });
 
 export default withStyles(styles)(withRouter(ClassDetail))

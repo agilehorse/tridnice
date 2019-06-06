@@ -3,7 +3,7 @@ import CssBaseline from "@material-ui/core/CssBaseline/index";
 import Paper from "@material-ui/core/Paper/index";
 import Typography from "@material-ui/core/Typography/index";
 import Button from "@material-ui/core/Button/index";
-import {Avatar, withStyles} from "@material-ui/core";
+import {withStyles} from "@material-ui/core";
 import {ValidatorForm, TextValidator} from "react-material-ui-form-validator";
 import config from "../../config";
 import classNames from "classnames"
@@ -33,7 +33,6 @@ class Login extends Component
 
     componentDidMount()
     {
-        let svg = document.querySelector("#svg");
         let svgNs = "http://www.w3.org/2000/svg";
         const animate11 = document.createElementNS(svgNs, "animate");
         animate11.setAttribute("attributeName", "height");
@@ -179,10 +178,8 @@ class Login extends Component
                         <svg id="svg" xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 50 50">
                             <rect id="rect1" x="0" y="0" width="13" height="50" fill="green">
                             </rect>
-
                             <rect id="rect2" x="19" y="0" width="13" height="50" fill="forestgreen">
                             </rect>
-
                             <rect id="rect3" x="38" y="0" width="13" height="50" fill="#4CBB17">
                             </rect>
                         </svg>

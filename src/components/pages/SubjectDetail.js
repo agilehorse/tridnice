@@ -109,11 +109,9 @@ class SubjectDetail extends Component
                 <div className={classes.boxDiv}>
                     <Box
                         justify="center"
-                        image={undefined}
                         data={this.state.data}
                         isInDetailPage={true}
                         callback={this.handleData}
-                        propertyToEditability={this.state.propertyToEditability}
                         isAdmin={this.props.userType === 'ADMIN'}
                         detailName={'subject'}
                     />
