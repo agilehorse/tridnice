@@ -280,6 +280,7 @@ class Timetable extends Component
                 });
         }
     }
+
     onDragOver = ev =>
     {
         ev.preventDefault();
@@ -413,7 +414,7 @@ class Timetable extends Component
                                     fr.push(lec);
                                     break;
                                 default:
-                                    // console.log("error day");
+                                // console.log("error day");
                             }
                         }
                         this.setState({
@@ -480,7 +481,7 @@ class Timetable extends Component
                 timeTable.fr = array;
                 break;
             default:
-                // console.log("no day");
+            // console.log("no day");
         }
 
         this.setState({timeTable: timeTable});
@@ -507,23 +508,26 @@ class Timetable extends Component
         return (
             <div className={classes.root}>
                 <div className={classes.appBarSpacer}/>
-                {
-                    //Classes menu
-                    this.props.isAdmin && <MenuList className={classes.toolMenu}>
-                        {this.state.class.map((item, key) => (
-                            <MenuItem
-                                key={key}
-                                selected={false}
-                                className={classes.menuItem}
-                                onClick={e => this.setActualClass(e, item.id)}
-                            >
-                                {item.name}
-                            </MenuItem>
-                        ))}
-                    </MenuList>}
+
                 <div className={classes.timeTable}>
                     {/*Timetable*/}
                     <div className={classes.timeTableBox}>
+                        {
+                            //Classes menu
+                            this.props.isAdmin &&
+                            <MenuList className={classes.toolMenu}>
+                                {this.state.class.map((item, key) => (
+                                    <MenuItem
+                                        key={key}
+                                        selected={false}
+                                        className={classes.menuItem}
+                                        onClick={e => this.setActualClass(e, item.id)}
+                                    >
+                                        {item.name}
+                                    </MenuItem>
+                                ))}
+                            </MenuList>
+                        }
                         <TimeTableRow type="header" data={this.header}/>
                         <TimeTableRow
                             type="mo"
@@ -562,7 +566,8 @@ class Timetable extends Component
                             className={this.props.classes.gridItem}
                         />
                     </div>
-                    {this.props.isAdmin && <aside
+                    {this.props.isAdmin &&
+                    <aside
                         className={classes.asideMenu}
                         onDragOver={e => this.onDragOver(e)}
                         onDrop={e => this.onDrop(e)}
@@ -654,7 +659,7 @@ const styles = theme => ({
     },
 
     toolMenu: {
-        marginLeft: theme.spacing.unit * 15,
+        // marginLeft: theme.spacing.unit * 15,
         display: "flex",
         flexDirection: "row",
         justifyContent: "flex-start",
@@ -665,23 +670,22 @@ const styles = theme => ({
         webkitBoxShadow: "0px 5px 5px 0px rgba(173,173,173,1)",
         mozBoxShadow: "0px 5px 5px 0px rgba(173,173,173,1)",
         boxShadow: "0px 5px 5px 0px rgba(173,173,173,1)",
-        width: '90vw',
+        width: '100%',
         [theme.breakpoints.up("1800")]: {
-            marginLeft: theme.spacing.unit * 20,
+            // marginLeft: theme.spacing.unit * 20,
         },
         [theme.breakpoints.up("lg")]: {
-            marginLeft: theme.spacing.unit * 12,
+            // marginLeft: theme.spacing.unit * 12,
         },
         [theme.breakpoints.down("md")]: {
-            marginLeft: theme.spacing.unit * 10,
+            // marginLeft: theme.spacing.unit * 10,
         },
         [theme.breakpoints.down("sm")]: {
-            minWidth: 1100,
+            width: 1410,
             transform: "scale(0.75)",
-            marginLeft: -(theme.spacing.unit * 6),
-            marginBottom: 2,
+            marginLeft: -(theme.spacing.unit * 22),
+            // marginBottom: 2,
         },
-        paddingRight: theme.spacing.unit * 5,
     },
 
     menuItem: {
@@ -691,7 +695,8 @@ const styles = theme => ({
     },
 
     asideMenu: {
-        height: "46em",
+        height: "95vh",
+        maxHeight: 670,
         minWidth: "12em",
         backgroundColor: "#ededed",
         borderRadius: "5px",
